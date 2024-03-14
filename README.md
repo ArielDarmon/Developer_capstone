@@ -14,15 +14,15 @@ pip install virtualenv
 virtualenv djangoenv
 source djangoenv/bin/activate
 
-py -m pip install -U -r requirements.txt
-py manage.py makemigrations
-py manage.py migrate
-# py manage.py migrate --run-syncdb
+python3 -m pip install -U -r requirements.txt
+python3 manage.py makemigrations
+python3 manage.py migrate
+# python3 manage.py migrate --run-syncdb
 
 # superuser
-py manage.py createsuperuser
+python3 manage.py createsuperuser
 
-py manage.py runserver
+python3 manage.py runserver
 
 # #####################################
 #
