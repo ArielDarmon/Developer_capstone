@@ -1,11 +1,9 @@
 name: 'Lint Code'
-
 on:
   push:
     branches: [master, main]
   pull_request:
     branches: [master, main]
-
 jobs:
   lint_python:
     name: Lint Python Files
@@ -13,7 +11,6 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
-    
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -30,7 +27,6 @@ jobs:
         # This command finds all Python files recursively and runs flake8 on them
         find . -name "*.py" -exec flake8 {} +
         echo "Linted all the python files successfully"
-
   lint_js:
       name: Lint JavaScript Files
       runs-on: ubuntu-latest
