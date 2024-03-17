@@ -13,7 +13,8 @@ class CarMake(models.Model):
 
 
 class CarModel(models.Model):
-    car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)  # Many-to-One relationship
+    # Many-to-One relationship
+    car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     CAR_TYPES = [
         ('MICROCAR', 'Microcar'),
@@ -34,17 +35,13 @@ class CarModel(models.Model):
         ('LMPV', 'Large MPV'),
         ('PREMIEUM', 'Premium Compact'),
         ('LUXURY', 'Luxury Compact'),
-        ('EXECUTIVE', 'Executive'),        
+        ('EXECUTIVE', 'Executive'),      
         ('CONVERT', 'Converible'),
         ('ROADSTAR', 'Roadster'),
         ('COMPACT', 'Compact'),
     ]
     type = models.CharField(max_length=10, choices=CAR_TYPES, default='SUV')
-    year = models.IntegerField(default=2023,
-        validators=[
-            MaxValueValidator(2023),
-            MinValueValidator(2015)
-        ])
+    year = models.IntegerField(default=2023, validators=[MaxValueValidator(2023), MinValueValidator(2015)])
     # Other fields as needed
 
     def __str__(self):
